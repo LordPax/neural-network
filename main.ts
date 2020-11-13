@@ -1,26 +1,17 @@
-import { rand } from './src/until'
+import { rand2, ReLu, Sig, Tanh, Heaviside } from './src/until'
 import { NeuralNetwork } from './src/neural_network'
 import { Matrix } from 'ml-matrix'
 
-const neural:NeuralNetwork = new NeuralNetwork(3, 3)
-neural.addLayer(3)
+const neural:NeuralNetwork = new NeuralNetwork(4)
+neural.addLayer(6)
 neural.addLayer(4)
 neural.addLayer(2)
+neural.addLayer(3)
+neural.addLayer(5)
 
-// console.log(neural.getInput())
-// console.log(neural.getOutput())
-// console.log(neural.getWeight(0))
-// console.log(neural.getWeight(1))
-// console.log(neural.getWeight(2))
+// const otherNeural:NeuralNetwork = neural.clone()
 
-// const A:Matrix = new Matrix([
-//     [1, 2],
-//     [3, 4]
-// ])
+const input:number[][] = [[2], [1], [4], [6]]
+//const inputMat:Matrix = new Matrix(input)
 
-// const B:Matrix = new Matrix([
-//     [5, 6],
-//     [7, 8]
-// ])
-
-// console.table(A.mmul(B))
+console.log(neural.calculate(input, Tanh, Heaviside))
