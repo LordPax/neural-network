@@ -14,4 +14,16 @@ neural.addLayer(5)
 const input:number[][] = [[2], [1], [4], [6]]
 //const inputMat:Matrix = new Matrix(input)
 
-console.log(neural.calculate(input, Tanh, Heaviside))
+console.table(neural.getWeight(0).toJSON())
+console.table(neural.getBias(0).toJSON())
+
+console.table(neural.calculate(input, Tanh, Heaviside))
+
+neural.mutate()
+
+console.log('================================')
+
+console.table(neural.getWeight(0).toJSON())
+console.table(neural.getBias(0).toJSON())
+
+console.table(neural.calculate(input, Tanh, Heaviside))

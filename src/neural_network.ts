@@ -1,10 +1,11 @@
-import { rand2, ReLu, Sig, Tanh, activ, Func } from './until'
+import { rand2, rand, ReLu, Sig, Tanh, activ, Func, roundNumber } from './until'
 import { Matrix } from 'ml-matrix'
 
 export class NeuralNetwork {
     private nbInput:number
     private nbLayer:number
     private reward:number
+    private mutationChance:number
 
     private output:Matrix
     private weight:Matrix[]
@@ -13,6 +14,7 @@ export class NeuralNetwork {
     constructor(nbInput:number) {
         this.nbInput = nbInput
         this.nbLayer = 0
+        this.mutationChance = 0.1
 
         this.weight = []
         this.bias = []
@@ -44,10 +46,10 @@ export class NeuralNetwork {
     * @param acc détermine la fin de la fonction récursive (default acc = 0)
     * @returns retourne un vecteur
     */
-    public calculate(input:Matrix|number[][], func:Func, funcExt:Func = func, acc:number = 0):Matrix {
+    public calculate(input:Matrix|number[][], func:Func, funcExt:Func = func, acc:number = 0):number[][] {
         const inp:Matrix = input instanceof Matrix ? input : new Matrix(input)
 
-        if ((inp.rows !== this.nbInput || inp.columns !== 1) && acc === 0) return Matrix.zeros(1, 1)
+        if ((inp.rows !== this.nbInput || inp.columns !== 1) && acc === 0) return [[0]]
 
         const prod:Matrix = this.getWeight(acc).mmul(inp)
         const add:Matrix = Matrix.add(prod, this.getBias(acc))
@@ -57,7 +59,7 @@ export class NeuralNetwork {
         if (acc === this.nbLayer - 1)
             this.setOutput(res)
 
-        return acc < this.nbLayer - 1 ? this.calculate(res, func, funcExt, acc + 1) : res
+        return acc < this.nbLayer - 1 ? this.calculate(res, func, funcExt, acc + 1) : res.toJSON()
     }
 
     /**
@@ -75,8 +77,26 @@ export class NeuralNetwork {
         return newNet
     }
     
+    /**
+    * modifie les poids et les biais du réseau de neurone en fonction de mutationChance
+    */
     public mutate():void {
+        const weight:Matrix[] = this.getAllWeight().map(elem => this.change(elem))
+        const bias:Matrix[] = this.getAllBias().map(elem => this.change(elem))
 
+        this.setAllWeight(weight)
+        this.setAllBias(bias)
+    }
+
+    public change(elem:Matrix):Matrix {
+        const probs:Matrix = Matrix.rand(elem.rows, elem.columns, { random:rand2 })
+        const mutationProbs:Matrix = new Matrix(probs.toJSON().map(rows => 
+            rows.map(cols => cols < this.mutationChance ? rand2() : 0)
+        ))
+
+        return new Matrix(Matrix.add(elem, mutationProbs).toJSON().map(rows => 
+            rows.map(cols => roundNumber(cols, 2))
+        ))
     }
 
     // getter / setter
