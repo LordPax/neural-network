@@ -15,6 +15,7 @@ export class NeuralNetwork {
         this.nbInput = nbInput
         this.nbLayer = 0
         this.mutationChance = 0.1
+        this.reward = 0
 
         this.weight = []
         this.bias = []
@@ -94,9 +95,14 @@ export class NeuralNetwork {
             rows.map(cols => cols < this.mutationChance ? rand2() : 0)
         ))
 
-        return new Matrix(Matrix.add(elem, mutationProbs).toJSON().map(rows => 
-            rows.map(cols => roundNumber(cols, 2))
-        ))
+        return Matrix.add(elem, mutationProbs)
+    }
+
+    public cloneMutate():NeuralNetwork {
+        const net:NeuralNetwork = this.clone()
+        net.mutate()
+        
+        return net
     }
 
     // getter / setter
