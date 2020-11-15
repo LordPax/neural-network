@@ -1,8 +1,8 @@
 {
-    "name": "neural-network",
+    "name": "billy-brain",
     "version": "1.0.0",
-    "description": "",
-    "main": "build/main.js",
+    "description": "neural network in typescript",
+    "main": "main.ts",
     "scripts": {
         "start": "node build/main.js",
         "build": "./compileTs.sh",
@@ -23,5 +23,6 @@
         "ml-matrix": "^6.5.3",
         "typescript": "^4.0.5",
         "typings": "^2.1.1"
-    }
+    },
+    "keywords": ["neural network"]
 }
