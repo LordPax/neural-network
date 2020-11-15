@@ -1,6 +1,6 @@
 {
     "name": "billy-brain",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "neural network in typescript",
     "main": "main.ts",
     "scripts": {
