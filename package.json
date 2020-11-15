@@ -1,10 +1,11 @@
 {
     "name": "billy-brain",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "description": "neural network in typescript",
-    "main": "main.ts",
+    "main": "build/main.js",
+    "types": "build/main.d.ts",
     "scripts": {
-        "start": "node build/main.js",
+        "start": "node build/test/test.js",
         "build": "./compileTs.sh",
         "test": "echo \"Error: no test specified\" && exit 1"
     },

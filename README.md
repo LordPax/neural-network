@@ -6,7 +6,7 @@ Little project to understand how to works neural networks
 ```bash
 npm i -s billy-brain
 ```
-example of script
+## Example of script
 ```ts
 import { NeuralNetwork, ReLu, Sig, Tanh, Heaviside } from 'billy-brain'
 
@@ -24,4 +24,12 @@ console.table(neural.calculate(input, Tanh, Heaviside))
 neural.mutate()
 
 console.table(neural.calculate(input, Tanh, Heaviside))
+```
+
+## Installation from github
+```bash
+git clone https://github.com/LordPax/neural-network.git && cd neural-network
+npm install
+npm run build
+npm start
 ```

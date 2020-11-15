@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
         "module": "commonjs",
+        "declaration": true,
         "esModuleInterop": true,
         "noImplicitAny": true,
         "removeComments": true,
@@ -10,10 +11,11 @@
         "strict": false,
     },
     "include": [
-        "main.ts"
+        "main.ts",
+        "test/test.ts"
     ],
     "exclude": [
         "node_modules",
-        "test/**/*.spec.ts"
+        "build"
     ]
 }
