@@ -1,6 +1,6 @@
-# Neural Network
+# Billy's Brain
 ## Description
-Little project to understand how to works neural networks
+Little project to learn how works neural networks
 
 ## Installation from npm
 ```bash

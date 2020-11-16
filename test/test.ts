@@ -14,3 +14,6 @@ console.table(neural.calculate(input, Tanh, Heaviside))
 neural.mutate()
  
 console.table(neural.calculate(input, Tanh, Heaviside))
+
+// neural.calculate(input, ReLu)
+// console.table(neural.getOutputJSON())

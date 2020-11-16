@@ -124,6 +124,9 @@ export class NeuralNetwork {
     public getOutput():Matrix {
         return this.output
     }
+    public getOutputJSON():number[][] {
+        return this.output.toJSON()
+    }
     public setOutput(output:Matrix) {
         this.output = output
     }

@@ -41,6 +41,9 @@ export const Sig = (x:number):number => roundNumber(1 / (1 + Math.exp(-x)), 2)
 export const Tanh = (x:number):number => roundNumber(2 / (1 + Math.exp(-2 * x)) -1, 2)
 
 export const activ = (mat:Matrix, func:Func):Matrix => {
-    const res:number[] = mat.getColumn(0).map(func)
+    const res:number[] = mat.getColumn(0).map(elem => {
+        const nb:number = roundNumber(elem, 2)
+        return func(nb)
+    })
     return (new Matrix(mat.rows, 1)).setColumn(0, res)
 }
