@@ -77,6 +77,10 @@ export class NeuralNetwork {
 
         return newNet
     }
+
+    public backProp(err:number):void {
+        //TODO : implement backprops
+    }
     
     /**
     * modifie les poids et les biais du réseau de neurone en fonction de mutationChance
