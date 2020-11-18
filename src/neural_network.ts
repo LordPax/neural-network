@@ -93,7 +93,7 @@ export class NeuralNetwork {
         this.setAllBias(bias)
     }
 
-    public change(elem:Matrix):Matrix {
+    private change(elem:Matrix):Matrix {
         const probs:Matrix = Matrix.rand(elem.rows, elem.columns, { random:rand2 })
         const mutationProbs:Matrix = new Matrix(probs.toJSON().map(rows => 
             rows.map(cols => cols < this.mutationChance ? rand2() : 0)
@@ -102,6 +102,11 @@ export class NeuralNetwork {
         return Matrix.add(elem, mutationProbs)
     }
 
+    /**
+    * faite une copie et retourne la mutation
+    *
+    * @returns retourne une copie modifiée
+    */
     public cloneMutate():NeuralNetwork {
         const net:NeuralNetwork = this.clone()
         net.mutate()
@@ -111,59 +116,25 @@ export class NeuralNetwork {
 
     // getter / setter
 
-    public setNbLayer(layer:number):void {
-        this.nbLayer = layer
-    }
-    public getNbLayer():number {
-        return this.nbLayer
-    }
+    public setNbLayer(layer:number):void { this.nbLayer = layer }
+    public getNbLayer():number { return this.nbLayer }
 
-    public setReward(reward:number):void {
-        this.reward = reward
-    }
-    public getReward():number {
-        return this.reward
-    }
+    public setReward(reward:number):void { this.reward = reward }
+    public getReward():number { return this.reward }
 
-    public getOutput():Matrix {
-        return this.output
-    }
-    public getOutputJSON():number[][] {
-        return this.output.toJSON()
-    }
-    public setOutput(output:Matrix) {
-        this.output = output
-    }
+    public getOutput():Matrix { return this.output }
+    public getOutputJSON():number[][] { return this.output.toJSON() }
+    public setOutput(output:Matrix) { this.output = output }
 
-    public getWeight(i:number):Matrix {
-        return this.weight[i]
-    }
-    public getAllWeight():Matrix[] {
-        return this.weight
-    }
-    public addWeight(weight:Matrix):void {
-        this.weight = [...this.weight, weight]
-    }
-    public setWeight(i:number, weight:Matrix):void {
-        this.weight[i] = weight
-    }
-    public setAllWeight(weight:Matrix[]):void {
-        this.weight = weight
-    }
+    public getWeight(i:number):Matrix { return this.weight[i] }
+    public getAllWeight():Matrix[] { return this.weight }
+    public addWeight(weight:Matrix):void { this.weight = [...this.weight, weight] }
+    public setWeight(i:number, weight:Matrix):void { this.weight[i] = weight }
+    public setAllWeight(weight:Matrix[]):void { this.weight = weight }
 
-    public getBias(i:number):Matrix {
-        return this.bias[i]
-    }
-    public getAllBias():Matrix[] {
-        return this.bias
-    }
-    public addBias(bias:Matrix):void {
-        this.bias = [...this.bias, bias]
-    }
-    public setBias(i:number, bias:Matrix):void {
-        this.bias[i] = bias
-    }
-    public setAllBias(bias:Matrix[]):void {
-        this.bias = bias
-    }
+    public getBias(i:number):Matrix { return this.bias[i] }
+    public getAllBias():Matrix[] { return this.bias }
+    public addBias(bias:Matrix):void { this.bias = [...this.bias, bias] }
+    public setBias(i:number, bias:Matrix):void { this.bias[i] = bias }
+    public setAllBias(bias:Matrix[]):void { this.bias = bias }
 }
