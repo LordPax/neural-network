@@ -99,7 +99,10 @@ export class NeuralNetwork {
             rows.map(cols => cols < this.mutationChance ? rand2() : 0)
         ))
 
-        return Matrix.add(elem, mutationProbs)
+        const res:number[][] = Matrix.add(elem, mutationProbs)
+        .toJSON().map(row => row.map(cols => roundNumber(cols, 2)))
+
+        return new Matrix(res)
     }
 
     /**
@@ -112,6 +115,20 @@ export class NeuralNetwork {
         net.mutate()
         
         return net
+    }
+
+    public saveWeight():number[][][] {
+        return this.weight.map(elem => elem.toJSON())
+    }
+    public loadBias(mat:number[][][]):void {
+        this.bias = mat.map(elem => new Matrix(elem))
+    }
+
+    public loadWeight(mat:number[][][]):void {
+        this.weight = mat.map(elem => new Matrix(elem))
+    }
+    public saveBias():number[][][] {
+        return this.bias.map(elem => elem.toJSON())
     }
 
     // getter / setter
