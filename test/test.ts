@@ -12,6 +12,3 @@ const input:number[][] = [[2], [1], [4], [6]]
 console.table(neural.calculate(input, Tanh, Heaviside))
 neural.mutate()
 console.table(neural.calculate(input, Tanh, Heaviside))
-
-console.log(neural.saveWeight())
-console.log(neural.saveBias())

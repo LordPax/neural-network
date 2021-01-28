@@ -1,4 +1,4 @@
-import { rand2, rand, ReLu, Sig, Tanh, activ, Func, roundNumber } from './until'
+import { rand2, rand, ReLu, Sig, Tanh, activ, Func, roundNumber } from './utils'
 import { Matrix } from 'ml-matrix'
 
 export class NeuralNetwork {

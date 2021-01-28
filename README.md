@@ -6,6 +6,15 @@ Little project to learn how works neural networks
 ```bash
 npm i -s billy-brain
 ```
+
+## Installation from github
+```bash
+git clone https://github.com/LordPax/neural-network.git && cd neural-network
+npm install
+npm run build
+npm start
+```
+
 ## Example of script
 ```ts
 import { NeuralNetwork, ReLu, Sig, Tanh, Heaviside } from 'billy-brain'
@@ -20,16 +29,6 @@ neural.addLayer(5)
 const input:number[][] = [[2], [1], [4], [6]]
 
 console.table(neural.calculate(input, Tanh, Heaviside))
-
 neural.mutate()
-
 console.table(neural.calculate(input, Tanh, Heaviside))
-```
-
-## Installation from github
-```bash
-git clone https://github.com/LordPax/neural-network.git && cd neural-network
-npm install
-npm run build
-npm start
 ```
