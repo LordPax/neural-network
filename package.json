@@ -6,6 +6,7 @@
     "types": "build/main.d.ts",
     "scripts": {
         "start": "node build/test/test.js",
+        "start2": "node build/test/test2.js",
         "build": "./compileTs.sh",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
@@ -20,9 +21,9 @@
     "author": "LordPax",
     "license": "ISC",
     "dependencies": {
-        "@types/node": "^14.14.7",
-        "ml-matrix": "^6.5.3",
-        "typescript": "^4.0.5"
+        "@types/node": "^14.14.31",
+        "ml-matrix": "^6.6.0",
+        "typescript": "^4.2.2"
     },
     "keywords": [
         "neural",

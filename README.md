@@ -32,3 +32,11 @@ console.table(neural.calculate(input, Tanh, Heaviside))
 neural.mutate()
 console.table(neural.calculate(input, Tanh, Heaviside))
 ```
+
+## Activation function
+| Name | Graph | Equation |
+|:----:|:-----:|:--------:|
+|ReLu|![100 car 0 gen](https://raw.githubusercontent.com/LordPax/neural-network/master/images/ReLu.png)||
+|Heaviside|||
+|Sig|||
+|Tanh|||

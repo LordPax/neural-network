@@ -29,8 +29,8 @@ export class NeuralNetwork {
     * @param nbNode nombre de neurone pour cette layer
     */
     public addLayer(nbNode:number):void {
-        const cols:number = this.nbLayer === 0 ? 
-            this.nbInput : this.getWeight(this.nbLayer - 1).rows
+        const cols:number = this.nbLayer === 0 
+            ? this.nbInput : this.getWeight(this.nbLayer - 1).rows
 
         this.addWeight(Matrix.rand(nbNode, cols, { random:rand2 }))
         this.addBias(Matrix.rand(nbNode, 1, { random:rand2 }))
@@ -57,8 +57,7 @@ export class NeuralNetwork {
         const f:Func = acc < this.nbLayer - 1 ? func : funcExt
         const res:Matrix = activ(add, f)
 
-        if (acc === this.nbLayer - 1)
-            this.setOutput(res)
+        if (acc === this.nbLayer - 1) this.setOutput(res)
 
         return acc < this.nbLayer - 1 ? this.calculate(res, func, funcExt, acc + 1) : res.toJSON()
     }
@@ -78,6 +77,11 @@ export class NeuralNetwork {
         return newNet
     }
 
+    /**
+    * rectifie la réponse d'un réseau de neurones grace à la descente de gradient
+    *
+    * @param err rien pour l'instant
+    */
     public backProp(err:number):void {
         //TODO : implement backprops
     }
