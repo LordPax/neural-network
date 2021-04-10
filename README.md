@@ -36,7 +36,7 @@ console.table(neural.calculate(input, Tanh, Heaviside))
 ## Activation function
 | Name | Graph | Equation |
 |:----:|:-----:|:--------:|
-|ReLu|![100 car 0 gen](https://raw.githubusercontent.com/LordPax/neural-network/master/images/ReLu.png)||
-|Heaviside|||
-|Sig|||
-|Tanh|||
+|ReLu|![ReLu](https://raw.githubusercontent.com/LordPax/neural-network/master/images/ReLu.png)|![ReLu](https://raw.githubusercontent.com/LordPax/neural-network/master/images/ReLu_graph.svg)|
+|Heaviside|![Heaviside](https://raw.githubusercontent.com/LordPax/neural-network/master/images/heaviside.png)|![Heaviside](https://raw.githubusercontent.com/LordPax/neural-network/master/images/heaviside_graph.svg)|
+|Sigmoid|![Sigmoid](https://raw.githubusercontent.com/LordPax/neural-network/master/images/sigmoid.png)|![Sigmoid](https://raw.githubusercontent.com/LordPax/neural-network/master/images/sigmoid_graph.svg)|
+|Tangente hyperbolique|![tanh](https://raw.githubusercontent.com/LordPax/neural-network/master/images/Tanh.png)|![tanh](https://raw.githubusercontent.com/LordPax/neural-network/master/images/tanh_graph.svg)|
