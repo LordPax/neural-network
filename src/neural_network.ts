@@ -1,4 +1,4 @@
-import { rand2, rand, ReLu, Sig, Tanh, activ, Func, roundNumber } from './utils'
+import { rand2, activ, Func, roundNumber } from './utils'
 import { Matrix } from 'ml-matrix'
 
 export class NeuralNetwork {
@@ -80,10 +80,10 @@ export class NeuralNetwork {
     /**
     * rectifie la réponse d'un réseau de neurones grace à la descente de gradient
     *
-    * @param err rien pour l'instant
+    * @param sol matrice des solution attendues
     */
-    public backProp(err:number):void {
-        //TODO : implement backprops
+    public backProp(sol:number[][]):void {
+        // TODO : implement backprops
     }
     
     /**
