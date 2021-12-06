@@ -1,4 +1,5 @@
-import { rand2, activ, Func, roundNumber } from './utils'
+import { activ, Func } from './utils'
+import { rand2, roundNumber } from 'lib-perso'
 import { Matrix } from 'ml-matrix'
 
 export class NeuralNetwork {
