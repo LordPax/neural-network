@@ -1,6 +1,6 @@
 {
     "name": "billy-brain",
-    "version": "1.2.6",
+    "version": "1.2.7",
     "description": "neural network in typescript",
     "main": "build/main.js",
     "types": "build/main.d.ts",
@@ -8,7 +8,8 @@
         "start": "node build/test/test.js",
         "start2": "node build/test/test2.js",
         "build": "./compileTs.sh",
-        "test": "mocha"
+        "test": "mocha",
+        "tags": "ctags -R --exclude=node_modules --exclude=.git --exclude=build ."
     },
     "repository": {
         "type": "git",
